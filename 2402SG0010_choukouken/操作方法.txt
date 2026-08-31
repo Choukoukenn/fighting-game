@@ -1,0 +1,16 @@
+P1
+
+移動：十字キー
+攻撃：NumLock_2
+エイム：NumLock 1
+防御:NumLock 3
+ジャンプ:NumLock 0
+
+p2
+
+移動    ：WASDキー
+攻撃    ：B
+エイム  ：V
+防御    :N
+ジャンプ:M
+
