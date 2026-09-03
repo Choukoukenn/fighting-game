@@ -6,40 +6,36 @@
 #include <System/Component/ComponentCollisionModel.h>
 #include <System/Component/ComponentCollisionCapsule.h>
 
-namespace Game01
+namespace Game01 {
+enum class GameState
 {
-	enum class GameState
-	{
-		Start,
-		Playing,
-		GameOver
-	};
+    Start,
+    Playing,
+    GameOver
+};
 
-	class Game01 : public Scene::Base
-	{
-	public:
-		BP_CLASS_DECL( Game01, u8"Game02::Game01のシーン!!!" );
+class Game01 : public Scene::Base
+{
+public:
+    BP_CLASS_DECL(Game01, u8"Game02::Game01のシーン!!!");
 
-		bool Init() override;
+    bool Init() override;
 
-		void Update() override;
+    void Update() override;
 
-		void LateDraw() override;
+    void LateDraw() override;
 
-		void UpdateStart();
+    void UpdateStart();
 
-		void UpdatePlaying();
+    void UpdatePlaying();
 
-		void UpdateGameOver();
+    void UpdateGameOver();
 
-		GameState GetState() const
-		{
-			return state_;
-		}
+    GameState GetState() const { return state_; }
 
-	private:
-		GameState state_	 = GameState::Start;
-		bool	  showManual = false;
-	};
+private:
+    GameState state_     = GameState::Start;
+    bool      showManual = false;
+};
 
-}	 // namespace Game01
+}    // namespace Game01

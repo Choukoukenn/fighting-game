@@ -26,38 +26,38 @@ void InputMouseExit();
 //! @param	[in]	mouseID	マウスのボタン種別
 //! @retval true	引数に指定されたマウスのボタンが押された
 //! @retval false	引数に指定されたマウスのボタンが押されていない
-bool IsMouseOn( int mouseID );
+bool IsMouseOn(int mouseID);
 
 //! 指定マウスボタンが押されていない検証
 //! @param	[in]	mouseID	マウスのボタン種別
 //! @retval true	引数に指定されたマウスのボタンが離されている
 //! @retval false	引数に指定されたマウスのボタンが押されている
-bool IsMouseRelease( int mouseID );
+bool IsMouseRelease(int mouseID);
 
 //! 指定マウスボタンの長押し検証
 //! @param	[in]	mouseID	マウスのボタン種別
 //! @retval true	引数に指定されたマウスのボタンが長押し（2フレーム以上）されている
 //! @retval false	引数に指定されたマウスのボタンが押されていない（押されているフレーム数が1以下）
-bool IsMouseRepeat( int mouseID, u32 frame = 2 );
+bool IsMouseRepeat(int mouseID, u32 frame = 2);
 
 // Windowsポンプ命名規則
 //! 指定マウスボタンの1回だけ押下検証
 //! @param	[in]	mouseID	マウスのボタン種別
 //! @retval true	引数に指定されたマウスのボタンが押された
 //! @retval false	引数に指定されたマウスのボタンが押されていない
-bool IsMouseDown( int mouseID );
+bool IsMouseDown(int mouseID);
 
 //! 指定マウスボタンが押されていない検証
 //! @param	[in]	mouseID	マウスのボタン種別
 //! @retval true	引数に指定されたマウスのボタンが離されている
 //! @retval false	引数に指定されたマウスのボタンが押されている
-bool IsMouseUp( int mouseID );
+bool IsMouseUp(int mouseID);
 
 //! 指定マウスボタンの検証
 //! @param	[in]	mouseID	マウスのボタン種別
 //! @retval true	引数に指定されたマウスのボタンが長されている
 //! @retval false	引数に指定されたマウスのボタンが押されていない
-bool IsMouse( int mouseID );
+bool IsMouse(int mouseID);
 
 //@}
 //===========================================================================
@@ -87,6 +87,6 @@ int GetMouseMoveY();
 
 //! @brief マウスを消去する ( 真ん中に置いておく )
 //! @param hide 消すかどうか
-void HideMouse( bool _hide = true );
+void HideMouse(bool _hide = true);
 
 //@}

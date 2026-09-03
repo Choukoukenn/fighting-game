@@ -7,55 +7,50 @@
 
 void StateGuard::Init()
 {
-	__super::Init();
-	auto owner = GetOwner();
-	if( auto model = owner->GetComponent<ComponentModel>() )
-	{
-		model->PlayAnimation( "guard" );
-	}
+    __super::Init();
+    auto owner = GetOwner();
+    if(auto model = owner->GetComponent<ComponentModel>()) {
+        model->PlayAnimation("guard");
+    }
 }
 
 void StateGuard::Update()
 {
-	__super::Update();
+    __super::Update();
 
-	// オーナー(自分がAddComponentされたObject)を取得します
-	// 処理されるときは必ずOwnerは存在しますので基本的にnullptrチェックは必要ありません
-	auto owner = GetOwner();
+    // オーナー(自分がAddComponentされたObject)を取得します
+    // 処理されるときは必ずOwnerは存在しますので基本的にnullptrチェックは必要ありません
+    auto owner = GetOwner();
 
-	if( auto model = owner->GetComponent<ComponentModel>() )
-	{
-		float time = model->GetAnimationTime();
+    if(auto model = owner->GetComponent<ComponentModel>()) {
+        float time = model->GetAnimationTime();
 
-		if( !model->IsPlaying() )
-		{
-			//終わりの時に
-			if( auto chr = dynamic_cast<Game01::CharacterBase*>( owner ) )
-			{
-				chr->SetGuard( false );
-			}
+        if(!model->IsPlaying()) {
+            //終わりの時に
+            if(auto chr = dynamic_cast<Game01::CharacterBase*>(owner)) {
+                chr->SetGuard(false);
+            }
 
-			RemoveThisComponent();
-			owner->AddComponent<StateIdleWalk>();
-		}
-	}
+            RemoveThisComponent();
+            owner->AddComponent<StateIdleWalk>();
+        }
+    }
 }
 
 void StateGuard::GUI()
 {
-	__super::GUI();
+    __super::GUI();
 
-	// GUI内に出現させる
-	ImGui::Begin( GetOwner()->GetName().data() );
-	{
-		ImGui::Separator();
-		if( ImGui::TreeNode( u8"State Guard***" ) )
-		{
-			ImGui::TreePop();
-		}
-	}
-	ImGui::End();
+    // GUI内に出現させる
+    ImGui::Begin(GetOwner()->GetName().data());
+    {
+        ImGui::Separator();
+        if(ImGui::TreeNode(u8"State Guard***")) {
+            ImGui::TreePop();
+        }
+    }
+    ImGui::End();
 }
 
-CEREAL_REGISTER_TYPE( StateGuard )
-CEREAL_REGISTER_POLYMORPHIC_RELATION( Component, StateGuard )
+CEREAL_REGISTER_TYPE(StateGuard)
+CEREAL_REGISTER_POLYMORPHIC_RELATION(Component, StateGuard)

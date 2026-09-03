@@ -2,26 +2,25 @@
 #include <System/Scene.h>
 #include "CharacterBase.h"
 
-namespace Game01
+namespace Game01 {
+USING_PTR(Player);
+
+class Player : public CharacterBase
 {
-	USING_PTR( Player );
+public:
+    BP_OBJECT_DECL(Player, u8"Game01 の Player");
 
-	class Player : public CharacterBase
-	{
-	public:
-		BP_OBJECT_DECL( Player, u8"Game01 の Player" );
+    bool Init() override;
 
-		bool Init() override;
+    void Update() override;
 
-		void Update() override;
+    void OnHit(const ComponentCollision::HitInfo& hit_info) override;
 
-		void OnHit( const ComponentCollision::HitInfo& hit_info ) override;
+    void Draw() override;
 
-		void Draw() override;
+    void GUI() override;
 
-		void GUI() override;
+private:
+};
 
-	private:
-	};
-
-}	 // namespace Game01
+}    // namespace Game01

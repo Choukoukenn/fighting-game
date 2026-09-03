@@ -10,7 +10,7 @@
 #include <implot/implot.h>
 
 //	初期化
-void ImGuiInit( bool use_keyboard = false );
+void ImGuiInit(bool use_keyboard = false);
 
 //	更新
 void ImGuiUpdate();

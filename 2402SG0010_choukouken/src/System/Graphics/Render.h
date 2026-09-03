@@ -25,30 +25,30 @@ ID3D11DeviceContext* GetD3DDeviceContext();
 
 //! 現在のカラーバッファをクリア
 //!	@param	[in]	clear_color  	クリアするカラー値
-void ClearColor( const float4& clear_color );
+void ClearColor(const float4& clear_color);
 
 //! 現在のデプスバッファをクリア
 //!	@param	[in]	depth_value  	クリアするデプス値
-void ClearDepth( f32 depth_value );
+void ClearDepth(f32 depth_value);
 
 //! 現在のステンシルバッファをクリア
 //!	@param	[in]	stencil_value	クリアするステンシル値
-void ClearStencil( u8 stencil_value );
+void ClearStencil(u8 stencil_value);
 
 //! カラーバッファをクリア
 //!	@param	[in]	texture	    	対象のカラーバッファ
 //!	@param	[in]	clear_color  	クリアするカラー値
-void ClearColor( const Texture* texture, const float4& clear_color );
+void ClearColor(const Texture* texture, const float4& clear_color);
 
 //! デプスバッファをクリア
 //!	@param	[in]	texture 		対象のデプスバッファ
 //!	@param	[in]	depth_value	    クリアするデプス値
-void ClearDepth( const Texture* texture, f32 depth_value );
+void ClearDepth(const Texture* texture, f32 depth_value);
 
 //! ステンシルバッファをクリア
 //!	@param	[in]	texture		    対象のデプスバッファ
 //!	@param	[in]	stencil_value	クリアするステンシル値
-void ClearStencil( const Texture* texture, u8 stencil_value );
+void ClearStencil(const Texture* texture, u8 stencil_value);
 
 //@}
 //===========================================================================
@@ -59,9 +59,9 @@ void ClearStencil( const Texture* texture, u8 stencil_value );
 //! RenderTarget情報
 struct TargetDesc
 {
-	u32															 color_count_	= 0;
-	std::array<Texture*, D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT> color_targets_ = {};
-	Texture*													 depth_stencil_ = nullptr;
+    u32                                                          color_count_   = 0;
+    std::array<Texture*, D3D11_SIMULTANEOUS_RENDER_TARGET_COUNT> color_targets_ = {};
+    Texture*                                                     depth_stencil_ = nullptr;
 };
 
 //! 現在のRenderTarget情報を取得
@@ -69,23 +69,23 @@ TargetDesc GetRenderTarget();
 
 //! RenderTargetを一括設定 (TargetDesc指定)
 //!	@param	[in]    desc	RenderTarget情報
-void SetRenderTarget( const TargetDesc& desc );
+void SetRenderTarget(const TargetDesc& desc);
 
 //! RenderTargetを設定 (単体)
 //!	@param	[in]	color_target	カラーターゲットの先頭アドレス
 //!	@param	[in]	depth_stencil	デプスバッファ(nullptr指定で無効化)
-void SetRenderTarget( Texture* color_target, Texture* depth_stencil = nullptr );
+void SetRenderTarget(Texture* color_target, Texture* depth_stencil = nullptr);
 
 //! RenderTargetを設定 (Multiple Render Target)
 //!	@param	[in]	color_count  	カラーターゲット数(1～8)
 //!	@param	[in]	color_targets	カラーターゲット配列の先頭アドレス
 //!	@param	[in]	depth_stencil	デプスバッファ(nullptr指定で無効化)
-void SetRenderTarget( u32 color_count, Texture** color_targets, Texture* depth_stencil = nullptr );
+void SetRenderTarget(u32 color_count, Texture** color_targets, Texture* depth_stencil = nullptr);
 
 //! テクスチャ設定
 //! @param slot     ピクセルシェーダーのスロット番号(0～127)
 //! @param texture  設定するテクスチャ
-void SetTexture( u32 slot, Texture* texture );
+void SetTexture(u32 slot, Texture* texture);
 
 //! デフォルトのバックバッファを取得(R8G8B8A8_UNORM)
 Texture* GetBackBuffer();
@@ -99,11 +99,11 @@ Texture* GetDepthStencil();
 //!	@param	[out]	dst_render_target	出力先RenderTarget
 //! @param	[in]	src_texture		    コピー元テクスチャ
 //! @param	[in]	shader_ps_handle  	カスタムのピクセルシェーダー (-1の場合は単純コピー)
-void CopyToRenderTarget( Texture* dst_render_target, Texture* src_texture, int shader_ps_handle = -1 );
+void CopyToRenderTarget(Texture* dst_render_target, Texture* src_texture, int shader_ps_handle = -1);
 
 //! RenderTarget全体に矩形を描画
 //! @param	[in]	shader_ps_handle  	カスタムのピクセルシェーダー
-void FillRenderTarget( int shader_ps_handle );
+void FillRenderTarget(int shader_ps_handle);
 
 //===========================================================================
 //!	@name	システム関数
@@ -121,18 +121,18 @@ void RenderExit();
 //--------------------------------------------------------------
 enum class RenderFeature
 {
-	Shadow,		// シャドウ
-	GBuffer,	// GBuffer
+    Shadow,     // シャドウ
+    GBuffer,    // GBuffer
 
-	//----
-	CountMax,
+    //----
+    CountMax,
 };
 
 // 描画機能を有効化/無効化
-void setActivateRenderFeature( RenderFeature feature, bool active );
+void setActivateRenderFeature(RenderFeature feature, bool active);
 
 // 描画機能が有効かどうか取得
-bool getActivateRenderFeature( RenderFeature feature );
+bool getActivateRenderFeature(RenderFeature feature);
 
 //!@}
 //---------------------------------------------------------------------------
@@ -141,7 +141,7 @@ bool getActivateRenderFeature( RenderFeature feature );
 //!@{
 
 //! 区間指定開始
-void PERF_Begin( const wchar_t* name, u32 color = 0xfffffffful );
+void PERF_Begin(const wchar_t* name, u32 color = 0xfffffffful);
 
 //! 区間指定終了
 void PERF_End();

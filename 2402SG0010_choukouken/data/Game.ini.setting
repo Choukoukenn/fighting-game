@@ -25,4 +25,4 @@ ScreenSize = {1280, 720}
 [Scene]
 
 ; ‰Šú‚É“Ç‚İ‚ŞƒV[ƒ“
-Start = Game01
+Start = "Game01"
