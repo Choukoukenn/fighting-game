@@ -4,20 +4,25 @@
 Title=BaseProject2025
 
 ; エディタ起動
-GUIEditor=True
-ShowGrid=True
-ShowFPS=True
+;GUIEditor=True
+;ShowGrid=True
+;ShowFPS=True
 ShowMouse=True
+
+GUIEditor=false
+ShowGrid=false
+ShowFPS=false
 
 ; フルスクリーン起動
 FullScreen=False
-
+;FullScreen=true
 ; スクリーンサイズ
 ScreenSize = {1280, 720}
-
+;ScreenSize = {1920, 1080}
+;ScreenSize = {2560, 1440}
 
 ; シーン
 [Scene]
 
 ; 初期に読み込むシーン
-Start = "Tutorial_01"
+Start = Game01
